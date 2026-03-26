@@ -42,10 +42,10 @@ while attempts > 0:
         guessed.append(letter)
         print("¡Bien! Esa letra está en la palabra.")
     else:
-    guessed.append(letter)
+        guessed.append(letter)
         attempts -= 1
         print("Esa letra no está en la palabra.")
     
     print()
 else:
-print(f"¡Perdiste! La palabra era: {word}")
+    print(f"¡Perdiste! La palabra era: {word}")
