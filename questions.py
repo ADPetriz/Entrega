@@ -1,23 +1,45 @@
 import random
 
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-
-word = random.choice(words)
-guessed = []
-attempts = 6
-puntaje = 0
+categorias = {
+    "Programacion":["python","programa","variable","funcion","bucle","cadena","entero","lista"],
+    "Vehiculos":["auto","avion","barco","helicoptero","moto","camioneta","camion","bicicleta"],
+    "Comidas":["pizza","pancho","hamburguesa","ensalada","fideos","milanesa","albondigas","empanadas"],
+    "Vestimentas":["remera","pantalon","corbata","pollera","vestido","zapatos","sombrero","medias"]}
 
 print("¡Bienvenido al Ahorcado!")
 print()
+print("Categorías para jugar:")
+print()
+
+nombres_cat = list(categorias.keys())
+num = 0
+for nom in nombres_cat:
+    num += 1
+    print(f'{num}. {nom}')
+print()
+
+while True:
+    seleccion_str = input("Elegí el número de la categoría: ")
+
+    if seleccion_str.isdigit():
+        seleccion = int(seleccion_str)
+    else:
+        print("Entrada no válida. Elegí un número entero.")
+        continue
+
+    if 1 <= seleccion <= len(nombres_cat):
+        categoria_elegida = nombres_cat[seleccion - 1]
+        break
+    else:
+        print("Por favor, elegí un número de la lista.")
+        
+print()    
+print(f"La categoría elegida es {categoria_elegida}")
+print()
+word = random.choice(categorias[categoria_elegida])
+guessed = []
+attempts = 6
+puntaje = 0
 
 while attempts > 0:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
